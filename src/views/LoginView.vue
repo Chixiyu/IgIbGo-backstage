@@ -79,8 +79,8 @@ export default defineComponent({
     const confirmLoading = ref<boolean>(false); // modal loading
     const loginResult = ref<string>();//
     const username = ref<string>();
-    const loginStatus=ref<boolean>(computed(()=>store.state.loginState).value);
-    console.log('login status: '+loginStatus.value);
+    const loginStatus = ref<boolean>(computed(() => store.state.loginState).value);
+    console.log('login status: ' + loginStatus.value);
 
     // from ant design, shows the popup modal
     const showModal = () => {
@@ -117,36 +117,30 @@ export default defineComponent({
         // console.log(resp);
         if (resp.data.status === 0) {
           loginResult.value = 'Login failed';
-          loginStatus.value=false;
+          loginStatus.value = false;
           message.error(loginResult.value);
-        }
-        else if (resp.data.status === 1) {
+        } else if (resp.data.status === 1) {
           formState.value.loginState = '1';
-          username.value=resp.data.username;
-          loginStatus.value=true;
-          store.commit("setUser",username.value);
-          store.commit("setStatus",loginStatus.value);
-          store.commit("setToken",resp.data.token);
+          username.value = resp.data.username;
+          loginStatus.value = true;
+          store.commit("setUser", username.value);
+          store.commit("setStatus", loginStatus.value);
+          store.commit("setToken", resp.data.token);
           if (resp.data.admin === true) {
             loginResult.value = 'You are a Dapesh member and Admin!';
-          }
-          else if (resp.data.dapesh === true) {
+          } else if (resp.data.dapesh === true) {
             loginResult.value = 'You are a Dapesh member!';
-          }
-          else {
+          } else {
             loginResult.value = 'You are now logged in';
           }
           message.success(loginResult.value);
-        }
-        else if (resp.data.status === 2) {
+        } else if (resp.data.status === 2) {
           formState.value.loginState = '1';
           if (resp.data.admin === true) {
             loginResult.value = 'You are a Dapesh member and Admin! Password assigned';
-          }
-          else if (resp.data.dapesh === true) {
+          } else if (resp.data.dapesh === true) {
             loginResult.value = 'You are a Dapesh member! Password assigned';
-          }
-          else {
+          } else {
             loginResult.value = 'You are now logged in, password assigned';
           }
           message.success(loginResult.value);

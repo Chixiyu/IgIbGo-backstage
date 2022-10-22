@@ -18,6 +18,11 @@
             Dapesh Videos
           </router-link>
         </a-menu-item>
+        <a-menu-item key="3">
+          <router-link to="/treeDiagram">
+            Students
+          </router-link>
+        </a-menu-item>
         <a-menu-item style="margin-left: 1000px">
           <label style="margin-right: 10px" v-show="loginStatus">
             {{ username }}

@@ -6,7 +6,7 @@ import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 import axios from "axios";
 
-axios.defaults.baseURL='http://igibgo.cc:8081';
+axios.defaults.baseURL='http://localhost:8081';
 
 // axios interceptor: use token for request
 axios.interceptors.request.use(function (config){

@@ -35,7 +35,7 @@
       <div class="upload-btn">
         <a-upload-dragger
             v-model:file-list="fileList"
-            action="http://igibgo.cc:8081/backstage/notes/upload"
+            action="http://localhost:8081/backstage/notes/upload"
             :headers="headers"
             name="noteFile"
             @change="handleChange"

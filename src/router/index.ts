@@ -23,7 +23,12 @@ const routes: Array<RouteRecordRaw> = [
         path: '/videos',
         name: 'videos',
         component: () => import('../views/DapeshVideosView.vue')
-    }
+    },
+    {
+        path: '/treeDiagram',
+        name: 'treeDiagram',
+        component:()=>import('../views/StudentTreeDiagramView.vue')
+    },
 ]
 
 const router = createRouter({
